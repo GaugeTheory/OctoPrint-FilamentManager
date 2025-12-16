@@ -232,8 +232,8 @@ class FilamentManager(object):
             j = self.spools.join(self.profiles, self.spools.c.profile_id == self.profiles.c.id)
             stmt = select([self.spools, self.profiles]).select_from(j).order_by(self.spools.c.name)
             result = self.conn.execute(stmt)
-        return [self._build_spool_dict(row, row.keys()) for row in result.fetchall()]
-
+        column_names = [col.name for col in self.spools.columns] + [col.name for col in self.profiles.columns]
+        return [self._build_spool_dict(row, column_names) for row in result.fetchall()]
     def get_spools_lastmodified(self):
         with self.lock, self.conn.begin():
             stmt = select([func.max(self.modifications.c.changed_at)])\
@@ -247,8 +247,10 @@ class FilamentManager(object):
                 .where(self.spools.c.id == identifier).order_by(self.spools.c.name)
             result = self.conn.execute(stmt)
         row = result.fetchone()
-        return self._build_spool_dict(row, row.keys()) if row is not None else None
-
+        if row is None:
+            return None
+        column_names = [col.name for col in self.spools.columns] + [col.name for col in self.profiles.columns]
+        return self._build_spool_dict(row, column_names)
     def create_spool(self, data):
         with self.lock, self.conn.begin():
             stmt = insert(self.spools)\
@@ -293,8 +295,8 @@ class FilamentManager(object):
             stmt = select([self.selections, self.spools, self.profiles]).select_from(j2)\
                 .where(self.selections.c.client_id == client_id).order_by(self.selections.c.tool)
         result = self.conn.execute(stmt)
-        return [self._build_selection_dict(row, row.keys()) for row in result.fetchall()]
-
+        column_names = [col.name for col in self.selections.columns] + [col.name for col in self.spools.columns] + [col.name for col in self.profiles.columns]
+        return [self._build_selection_dict(row, column_names) for row in result.fetchall()]
     def get_selection(self, identifier, client_id):
         with self.lock, self.conn.begin():
             j1 = self.selections.join(self.spools, self.selections.c.spool_id == self.spools.c.id)
@@ -303,8 +305,10 @@ class FilamentManager(object):
                 .where((self.selections.c.tool == identifier) & (self.selections.c.client_id == client_id))
         result = self.conn.execute(stmt)
         row = result.fetchone()
-        return self._build_selection_dict(row, row.keys()) if row is not None else dict(tool=identifier, spool=None)
-
+        if row is None:
+            return dict(tool=identifier, spool=None)
+        column_names = [col.name for col in self.selections.columns] + [col.name for col in self.spools.columns] + [col.name for col in self.profiles.columns]
+        return self._build_selection_dict(row, column_names)
     def update_selection(self, identifier, client_id, data):
         with self.lock, self.conn.begin():
             values = dict()
