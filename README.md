@@ -1,5 +1,10 @@
 # OctoPrint-FilamentManager
 
+## Foreground
+Hi everybody,
+this is just a fork to merge to support new python version. I created this fork for my own use. You can use it however I neither have intention to take any responsibility nor maintina the repo. I got this working with firesh install of OctoPrint 1.11.5.
+My intention to migrate to another plugin that is actively supported by the community. This will give me some time until I find a new plugin and migrate to it.
+
 ## UNDER NEW MANAGEMENT
 
     Hi everybody,
@@ -17,14 +22,14 @@
 
 # Overview
 
-[![Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=version&url=https://api.github.com/repos/OllisGit/OctoPrint-FilamentManager/releases&query=$[0].name)]()
-[![Released](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=released&url=https://api.github.com/repos/OllisGit/OctoPrint-FilamentManager/releases&query=$[0].published_at)]()
-![GitHub Releases (by Release)](https://img.shields.io/github/downloads/OllisGit/OctoPrint-FilamentManager/latest/total.svg)
+[![Version](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=version&url=https://api.github.com/repos/GaugeTheory/OctoPrint-FilamentManager/releases&query=$[0].name)]()
+[![Released](https://img.shields.io/badge/dynamic/json.svg?color=brightgreen&label=released&url=https://api.github.com/repos/GaugeTheory/OctoPrint-FilamentManager/releases&query=$[0].published_at)]()
+![GitHub Releases (by Release)](https://img.shields.io/github/downloads/GaugeTheory/OctoPrint-FilamentManager/latest/total.svg)
 
 This OctoPrint plugin makes it easy to manage your inventory of filament spools. You can add all your spools and assign them to print jobs. The Filament Manager will automatically track the amount of extruded filament so you can always see how much is left on your spools.
 
-If you have questions or encounter issues please take a look at the [Frequently Asked Questions](https://github.com/OllisGit/OctoPrint-FilamentManager/wiki#faq) first. There might be already an answer.
-In case you haven't found what you are looking for, feel free to open a [ticket](https://github.com/OllisGit/OctoPrint-FilamentManager/issues/new/choose) and I'll try to help.
+If you have questions or encounter issues please take a look at the [Frequently Asked Questions](https://github.com/GaugeTheory/OctoPrint-FilamentManager/wiki#faq) first. There might be already an answer.
+In case you haven't found what you are looking for, feel free to open a [ticket](https://github.com/GaugeTheory/OctoPrint-FilamentManager/issues/new/choose) and I'll try to help.
 Or ask questions and requests for help in the community forum [community forum](https://community.octoprint.org/).
 
 #### Support my Efforts
@@ -46,12 +51,11 @@ If you like it, I would be thankful about a cup of coffee :)
 
 ## Setup
 
-1. Install this plugin via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
-or manually using this URL:
+1. Manually using this URL:
 
-    `https://github.com/OllisGit/OctoPrint-FilamentManager/releases/latest/download/master.zip`
+    `https://github.com/GaugeTheory/OctoPrint-FilamentManager/archive/refs/tags/latest.zip`
 
-1. For PostgreSQL support you need to install an additional dependency. Take a look into the [wiki](https://github.com/OllisGit/OctoPrint-FilamentManager/wiki) for more details.
+1. For PostgreSQL support you need to install an additional dependency. Take a look into the [wiki](https://github.com/GaugeTheory/OctoPrint-FilamentManager/wiki) for more details.
 
     `pip install psycopg2`
 
