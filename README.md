@@ -2,7 +2,7 @@
 
 ## Foreground
 Hi everybody,
-this is just a fork to merge to support new python version. I created this fork for my own use. You can use it; however, I neither have intention to take any responsibility or credit, nor maintain the repo. I got this plugin working with fresh install of OctoPrint 1.11.5.
+this is just a fork od original [OllisGit](https://github.com/OllisGit/OctoPrint-FilamentManager) repo to merge to support new python version. I created this fork for my own use. You can use it; however, I neither have intention to take any responsibility or credit, nor maintain the repo. I got this plugin working with fresh install of OctoPrint 1.11.5.
 My intention to migrate to another plugin that is actively supported by the community. This will give me some time until I find a new plugin and migrate to it.
 
 ## UNDER NEW MANAGEMENT
